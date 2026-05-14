@@ -5,12 +5,10 @@ const newOilBtn = document.getElementById("newOilBtn");
 const wasteOilBtn = document.getElementById("wasteOilBtn");
 const historyBtn = document.getElementById("historyBtn");
 const benefitBtn = document.getElementById("benefitBtn");
+const marketBtn = document.getElementById("marketBtn");
+const marketModal = document.getElementById("marketModal");
+const marketCloseBtn = document.getElementById("marketCloseBtn");
 const toast = document.getElementById("toast");
-
-const priceBtn = document.getElementById("priceBtn");
-const priceModal = document.getElementById("priceModal");
-const priceModalClose = document.getElementById("priceModalClose");
-const priceModalCloseDim = document.getElementById("priceModalCloseDim");
 
 let oilCount = 1;
 const MIN_OIL_COUNT = 1;
@@ -48,18 +46,24 @@ benefitBtn.addEventListener("click", () => {
   showToast("수거 실적에 따라 할인 또는 교환 혜택 제공");
 });
 
-priceBtn.addEventListener("click", openPriceModal);
-priceModalClose.addEventListener("click", closePriceModal);
-priceModalCloseDim.addEventListener("click", closePriceModal);
+marketBtn.addEventListener("click", () => {
+  marketModal.classList.add("show");
+  marketModal.setAttribute("aria-hidden", "false");
+});
 
-function openPriceModal() {
-  priceModal.classList.add("show");
-  priceModal.setAttribute("aria-hidden", "false");
-}
+marketCloseBtn.addEventListener("click", () => {
+  closeMarketModal();
+});
 
-function closePriceModal() {
-  priceModal.classList.remove("show");
-  priceModal.setAttribute("aria-hidden", "true");
+marketModal.addEventListener("click", (e) => {
+  if (e.target === marketModal) {
+    closeMarketModal();
+  }
+});
+
+function closeMarketModal() {
+  marketModal.classList.remove("show");
+  marketModal.setAttribute("aria-hidden", "true");
 }
 
 function showToast(message) {
