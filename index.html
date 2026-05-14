@@ -19,24 +19,12 @@
       </button>
     </header>
 
-    <section class="market-bar" aria-label="식용유 및 폐유 시세">
-      <div class="market-item">
-        <div class="market-icon used-market-icon"></div>
-        <span>폐유 <strong>850원~/캔</strong></span>
-      </div>
-
-      <div class="market-divider"></div>
-
-      <div class="market-item">
-        <div class="market-icon new-market-icon"></div>
-        <span>식용유 <strong>1,420원~/캔</strong></span>
-      </div>
-
-      <div class="market-divider"></div>
-
-      <button id="marketBtn" class="market-link" type="button">
-        전체 시세보기 <span>›</span>
-      </button>
+    <section class="market-bar">
+      <span>폐식용유 <strong>19,000원/캔</strong></span>
+      <span class="divider">|</span>
+      <span>식용유 <strong>20,000원~</strong></span>
+      <span class="divider">|</span>
+      <button id="marketBtn" type="button">전체 시세보기</button>
     </section>
 
     <section class="point-card">
@@ -96,6 +84,22 @@
     </button>
   </main>
 
+  <div id="marketModal" class="market-modal" aria-hidden="true">
+    <div class="market-modal-box">
+      <div class="market-modal-head">
+        <h3>전체 시세</h3>
+        <button id="marketCloseBtn" type="button">×</button>
+      </div>
+
+      <ul class="market-list">
+        <li><span>폐식용유</span><strong>19,000원/캔</strong></li>
+        <li><span>대두유</span><strong>20,000원~</strong></li>
+        <li><span>카놀라유</span><strong>21,000원~</strong></li>
+        <li><span>옥수수유</span><strong>20,500원~</strong></li>
+        <li><span>해바라기유</span><strong>22,000원~</strong></li>
+      </ul>
+    </div>
+  </div>
   <div id="toast" class="toast">
     ✅ 요청이 접수되었습니다
   </div>
