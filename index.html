@@ -11,7 +11,7 @@
   <main class="app">
     <header class="header">
       <div class="logo">
-        <img src="./icons/logo.png" alt="리올 로고" class="logo-img" />
+        <img src="./icons/logo3.png" alt="리올 로고" class="logo-img" />
       </div>
 
       <button class="bell-btn" aria-label="알림">
@@ -19,12 +19,16 @@
       </button>
     </header>
 
-    <section class="market-bar">
-      <span>폐식용유 <strong>19,000원/캔</strong></span>
-      <span class="divider">|</span>
-      <span>식용유 <strong>20,000원~</strong></span>
-      <span class="divider">|</span>
-      <button id="marketBtn" type="button">전체 시세보기</button>
+    <section class="market-bar" aria-label="오늘 기준 시세">
+      <div class="market-info">
+        <span>폐식용유 <strong>19,000원/캔</strong></span>
+        <span class="divider">|</span>
+        <span>식용유 <strong>20,000원~</strong></span>
+      </div>
+
+      <button id="marketBtn" type="button">
+        전체 시세보기 <span>›</span>
+      </button>
     </section>
 
     <section class="point-card">
@@ -48,32 +52,33 @@
         <h2>새 기름 요청</h2>
 
         <div class="counter">
-          <button id="minusBtn">−</button>
+          <button id="minusBtn" type="button" aria-label="수량 감소">−</button>
 
           <strong>
             <span id="oilCount">1</span>통
           </strong>
 
-          <button id="plusBtn">+</button>
+          <button id="plusBtn" type="button" aria-label="수량 증가">+</button>
         </div>
 
-        <button id="newOilBtn" class="main-btn">
+        <button id="newOilBtn" class="main-btn" type="button">
           새 기름 요청하기
         </button>
       </div>
     </section>
 
-    <button id="wasteOilBtn" class="list-card">
+    <button id="wasteOilBtn" class="list-card primary-list-card" type="button">
       <div class="icon-circle used-oil-icon"></div>
 
       <div>
         <h2>폐기름 수거 요청</h2>
+        <p>수거가 필요하면 여기를 눌러주세요</p>
       </div>
 
       <span>›</span>
     </button>
 
-    <button id="historyBtn" class="list-card">
+    <button id="historyBtn" class="list-card" type="button">
       <div class="icon-circle request-list-icon"></div>
 
       <div>
@@ -85,21 +90,30 @@
   </main>
 
   <div id="marketModal" class="market-modal" aria-hidden="true">
-    <div class="market-modal-box">
+    <div class="market-modal-box" role="dialog" aria-modal="true" aria-labelledby="marketTitle">
       <div class="market-modal-head">
-        <h3>전체 시세</h3>
-        <button id="marketCloseBtn" type="button">×</button>
+        <div>
+          <h3 id="marketTitle">전체 시세</h3>
+          <p>오늘 기준 참고 시세입니다</p>
+        </div>
+
+        <button id="marketCloseBtn" type="button" aria-label="시세 창 닫기">×</button>
       </div>
 
       <ul class="market-list">
-        <li><span>폐식용유</span><strong>19,000원/캔</strong></li>
+        <li><span>폐식용유</span><strong>최대 19,000원/캔</strong></li>
         <li><span>대두유</span><strong>20,000원~</strong></li>
         <li><span>카놀라유</span><strong>21,000원~</strong></li>
         <li><span>옥수수유</span><strong>20,500원~</strong></li>
         <li><span>해바라기유</span><strong>22,000원~</strong></li>
       </ul>
+
+      <p class="market-notice">
+        실제 정산 금액은 품질, 수량, 지역, 계약 조건에 따라 달라질 수 있습니다.
+      </p>
     </div>
   </div>
+
   <div id="toast" class="toast">
     ✅ 요청이 접수되었습니다
   </div>
