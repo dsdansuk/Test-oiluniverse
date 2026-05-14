@@ -1,0 +1,594 @@
+:root {
+  --ds-red: #ec1846;
+  --ds-gray: #4c585f;
+  --bg: #f6f7f8;
+  --white: #ffffff;
+  --text: #263238;
+  --border: #e8ecef;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.app {
+  width: 100%;
+  max-width: 520px;
+  min-height: 100dvh;
+  margin: 0 auto;
+
+  padding-top: max(12px, env(safe-area-inset-top));
+  padding-right: clamp(14px, 4vw, 24px);
+  padding-left: clamp(14px, 4vw, 24px);
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(8px, 1.6vh, 16px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  width: clamp(112px, 30vw, 160px);
+  height: clamp(28px, 7vw, 40px);
+  overflow: hidden;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+.bell-btn {
+  border: none;
+  background: transparent;
+  width: clamp(38px, 10vw, 52px);
+  height: clamp(38px, 10vw, 52px);
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bell-btn img {
+  width: clamp(22px, 5.8vw, 31px);
+  height: clamp(22px, 5.8vw, 31px);
+  object-fit: contain;
+  display: block;
+}
+
+.point-card {
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #ff0f4b 0%, #e10037 100%);
+  color: white;
+
+  border-radius: clamp(22px, 6vw, 32px);
+  padding: clamp(16px, 4.6vw, 28px);
+  margin-bottom: 8px;
+
+  box-shadow: 0 8px 18px rgba(236, 24, 70, 0.16);
+}
+
+.point-card::after {
+  content: "P";
+  position: absolute;
+  right: clamp(18px, 5vw, 30px);
+  top: clamp(18px, 5vw, 30px);
+
+  width: clamp(60px, 17vw, 96px);
+  height: clamp(60px, 17vw, 96px);
+
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0d18b, #c79a5b);
+  color: white;
+
+  display: grid;
+  place-items: center;
+
+  font-size: clamp(30px, 8vw, 52px);
+  font-weight: 900;
+
+  box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.32);
+}
+
+.point-card p {
+  margin: 0;
+  font-size: clamp(15px, 4vw, 22px);
+  font-weight: 800;
+}
+
+.point-card h1 {
+  margin: clamp(8px, 1.6vh, 14px) 0 clamp(14px, 2.6vh, 24px);
+  font-size: clamp(40px, 11vw, 68px);
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.benefit-box {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: clamp(10px, 2vh, 18px);
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dark-btn {
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+
+  background: #434f57;
+  color: white;
+
+  min-width: clamp(104px, 27vw, 145px);
+  height: clamp(36px, 8.8vw, 52px);
+
+  padding: 0 clamp(12px, 3.4vw, 22px);
+
+  font-size: clamp(14px, 3.6vw, 20px);
+  font-weight: 900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  white-space: nowrap;
+
+  box-shadow: 0 4px 10px rgba(38, 50, 56, 0.14);
+}
+
+.dark-btn span {
+  font-size: 1.15em;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.card,
+.list-card {
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+  border-radius: clamp(22px, 6vw, 32px);
+
+  padding: clamp(14px, 4vw, 24px);
+  margin-bottom: 8px;
+
+  box-shadow:
+    0 4px 10px rgba(76, 88, 95, 0.055),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.oil-card {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(10px, 3.2vw, 18px);
+
+  background: #fcfcfd;
+  border: 1.5px solid #dfe5e9;
+
+  box-shadow:
+    0 6px 16px rgba(76, 88, 95, 0.09),
+    0 1px 0 rgba(255, 255, 255, 1) inset;
+}
+
+.card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.icon-circle {
+  flex: 0 0 clamp(50px, 14vw, 84px);
+  width: clamp(50px, 14vw, 84px);
+  height: clamp(50px, 14vw, 84px);
+
+  border-radius: 50%;
+  background-color: #f1f2f4;
+  border: 1px solid #e2e6e9;
+}
+
+.oil-icon {
+  background: url("../icons/new-oil-can1.png") center / 42% no-repeat, #f1f2f4;
+}
+
+.used-oil-icon {
+  background: url("../icons/oil.png") center / 42% no-repeat, #f1f2f4;
+}
+
+.request-list-icon {
+  background: url("../icons/list.png") center / 42% no-repeat, #f1f2f4;
+}
+
+h2 {
+  margin: 0;
+
+  font-size: clamp(21px, 5.3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+
+  color: var(--ds-gray);
+
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(8px, 2.2vw, 14px);
+
+  margin: clamp(10px, 2.2vh, 20px) 0;
+}
+
+.counter button {
+  flex: 0 1 clamp(48px, 12.5vw, 72px);
+  height: clamp(36px, 9vw, 56px);
+
+  border: 1px solid #dfe5e9;
+  border-radius: clamp(12px, 3.6vw, 20px);
+
+  background: #f4f6f7;
+  color: var(--ds-gray);
+
+  font-size: clamp(22px, 6vw, 36px);
+  font-weight: 700;
+
+  box-shadow: 0 3px 8px rgba(76, 88, 95, 0.06);
+}
+
+.counter strong {
+  flex: 0 0 auto;
+
+  font-size: clamp(26px, 7vw, 46px);
+  color: var(--ds-gray);
+
+  white-space: nowrap;
+}
+
+.main-btn {
+  width: 100%;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: clamp(15px, 4vw, 22px);
+
+  background: linear-gradient(135deg, #ff0f4b 0%, #e10037 100%);
+  color: white;
+
+  padding: clamp(10px, 2.4vh, 18px) 8px;
+
+  font-size: clamp(17px, 4.3vw, 28px);
+  font-weight: 900;
+
+  white-space: nowrap;
+
+  box-shadow: 0 5px 12px rgba(236, 24, 70, 0.16);
+}
+
+.list-card {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 3.2vw, 18px);
+
+  text-align: left;
+}
+
+.list-card div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+
+.list-card span {
+  font-size: clamp(30px, 7vw, 46px);
+  color: var(--ds-gray);
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.list-card:last-of-type {
+  margin-bottom: 0;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: max(24px, env(safe-area-inset-bottom));
+
+  transform: translateX(-50%) translateY(120px);
+
+  width: calc(100% - 40px);
+  max-width: 390px;
+
+  background: var(--ds-gray);
+  color: white;
+
+  padding: 18px;
+  border-radius: 22px;
+
+  font-size: 19px;
+  font-weight: 900;
+  text-align: center;
+
+  opacity: 0;
+  transition: 0.35s;
+
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* 일반 아이폰 / 갤럭시 */
+@media (max-width: 430px) and (min-height: 800px) {
+  .app {
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+  }
+
+  .point-card {
+    padding: 20px 22px;
+  }
+
+  .card,
+  .list-card {
+    padding: 16px 18px;
+  }
+
+  .counter {
+    margin: 12px 0;
+  }
+}
+
+/* 큰 아이폰 / 큰 갤럭시 */
+@media (min-width: 390px) and (min-height: 840px) {
+  .app {
+    padding-top: max(14px, env(safe-area-inset-top));
+  }
+
+  .point-card,
+  .card,
+  .list-card {
+    margin-bottom: 10px;
+  }
+}
+
+/* 높이가 낮은 화면 */
+@media (max-height: 760px) {
+  .app {
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: max(6px, env(safe-area-inset-bottom));
+  }
+
+  .header {
+    margin-bottom: 8px;
+  }
+
+  .point-card {
+    padding: 16px 18px;
+    margin-bottom: 7px;
+  }
+
+  .point-card p {
+    font-size: 15px;
+  }
+
+  .point-card h1 {
+    font-size: clamp(38px, 10vw, 54px);
+    margin: 8px 0 12px;
+  }
+
+  .point-card::after {
+    width: 58px;
+    height: 58px;
+    font-size: 30px;
+  }
+
+  .benefit-box {
+    padding-top: 10px;
+  }
+
+  .dark-btn {
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .card,
+  .list-card {
+    padding: 13px 16px;
+    margin-bottom: 7px;
+  }
+
+  .icon-circle {
+    flex-basis: 50px;
+    width: 50px;
+    height: 50px;
+  }
+
+  h2 {
+    font-size: clamp(20px, 5.1vw, 28px);
+  }
+
+  .counter {
+    margin: 8px 0;
+  }
+
+  .counter button {
+    height: 34px;
+    font-size: 22px;
+  }
+
+  .counter strong {
+    font-size: 25px;
+  }
+
+  .main-btn {
+    padding: 9px 8px;
+    font-size: 17px;
+  }
+}
+
+/* iPhone SE급 / 작은 갤럭시 */
+@media (max-height: 670px) {
+  .app {
+    padding-top: max(6px, env(safe-area-inset-top));
+    padding-bottom: max(4px, env(safe-area-inset-bottom));
+  }
+
+  .logo {
+    width: 106px;
+    height: 27px;
+  }
+
+  .bell-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .bell-btn img {
+    width: 21px;
+    height: 21px;
+  }
+
+  .point-card {
+    padding: 14px 16px;
+  }
+
+  .point-card h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .point-card::after {
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+  }
+
+  .dark-btn {
+    height: 34px;
+    min-width: 96px;
+    font-size: 13px;
+  }
+
+  .card,
+  .list-card {
+    padding: 11px 14px;
+    margin-bottom: 6px;
+  }
+
+  .oil-card {
+    gap: 9px;
+  }
+
+  .icon-circle {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
+
+  .counter {
+    margin: 7px 0;
+  }
+
+  .counter button {
+    height: 32px;
+    font-size: 21px;
+    border-radius: 11px;
+  }
+
+  .counter strong {
+    font-size: 24px;
+  }
+
+  .main-btn {
+    padding: 8px 8px;
+    font-size: 16px;
+  }
+}
+
+/* 아주 좁은 화면 */
+@media (max-width: 340px) {
+  .app {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .main-btn {
+    font-size: 15px;
+  }
+
+  .counter strong {
+    font-size: 23px;
+  }
+}
+
+/* 태블릿 */
+@media (min-width: 768px) {
+  .app {
+    max-width: 600px;
+  }
+
+  .point-card {
+    padding: 30px;
+  }
+
+  .card,
+  .list-card {
+    padding: 26px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .main-btn {
+    font-size: 30px;
+  }
+}

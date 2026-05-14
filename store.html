@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>업장 화면</title>
+  <link rel="stylesheet" href="./css/store.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="logo">
+        <img src="./icons/logo.png" alt="리올 로고" class="logo-img" />
+      </div>
+
+      <button class="bell-btn" aria-label="알림">
+        <img src="./icons/bell.png" alt="알림" />
+      </button>
+    </header>
+
+    <section class="point-card">
+      <p>현재 포인트</p>
+
+      <h1>
+        <span id="point">12,450</span>P
+      </h1>
+
+      <div class="benefit-box">
+        <button id="benefitBtn" class="dark-btn">
+          포인트 사용 <span>›</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="card oil-card">
+      <div class="icon-circle oil-icon"></div>
+
+      <div class="card-content">
+        <h2>새 기름 요청</h2>
+
+        <div class="counter">
+          <button id="minusBtn">−</button>
+
+          <strong>
+            <span id="oilCount">1</span>통
+          </strong>
+
+          <button id="plusBtn">+</button>
+        </div>
+
+        <button id="newOilBtn" class="main-btn">
+          새 기름 요청하기
+        </button>
+      </div>
+    </section>
+
+    <button id="wasteOilBtn" class="list-card">
+      <div class="icon-circle used-oil-icon"></div>
+
+      <div>
+        <h2>폐기름 수거 요청</h2>
+      </div>
+
+      <span>›</span>
+    </button>
+
+    <button id="historyBtn" class="list-card">
+      <div class="icon-circle request-list-icon"></div>
+
+      <div>
+        <h2>요청 내역 보기</h2>
+      </div>
+
+      <span>›</span>
+    </button>
+  </main>
+
+  <div id="toast" class="toast">
+    ✅ 요청이 접수되었습니다
+  </div>
+
+  <script>
+    let oilCount = 1;
+
+    const oilCountEl = document.getElementById("oilCount");
+
+    document.getElementById("plusBtn").addEventListener("click", () => {
+      oilCount++;
+      oilCountEl.textContent = oilCount;
+    });
+
+    document.getElementById("minusBtn").addEventListener("click", () => {
+      if (oilCount > 1) {
+        oilCount--;
+        oilCountEl.textContent = oilCount;
+      }
+    });
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    document.getElementById("newOilBtn").addEventListener("click", () => {
+      showToast(`새 기름 ${oilCount}통 요청 완료`);
+    });
+
+    document.getElementById("wasteOilBtn").addEventListener("click", () => {
+      showToast("폐기름 수거 요청 완료");
+    });
+
+    document.getElementById("historyBtn").addEventListener("click", () => {
+      showToast("요청 내역 화면으로 이동");
+    });
+
+    document.getElementById("benefitBtn").addEventListener("click", () => {
+      showToast("포인트 사용 화면으로 이동");
+    });
+  </script>
+</body>
+</html>
