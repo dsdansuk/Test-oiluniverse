@@ -61,6 +61,12 @@ marketModal.addEventListener("click", (e) => {
   }
 });
 
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && marketModal.classList.contains("show")) {
+    closeMarketModal();
+  }
+});
+
 function closeMarketModal() {
   marketModal.classList.remove("show");
   marketModal.setAttribute("aria-hidden", "true");
