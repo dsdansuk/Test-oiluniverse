@@ -80,49 +80,6 @@
     ✅ 요청이 접수되었습니다
   </div>
 
-  <script>
-    let oilCount = 1;
-
-    const oilCountEl = document.getElementById("oilCount");
-
-    document.getElementById("plusBtn").addEventListener("click", () => {
-      oilCount++;
-      oilCountEl.textContent = oilCount;
-    });
-
-    document.getElementById("minusBtn").addEventListener("click", () => {
-      if (oilCount > 1) {
-        oilCount--;
-        oilCountEl.textContent = oilCount;
-      }
-    });
-
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-
-      toast.textContent = message;
-      toast.classList.add("show");
-
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 2200);
-    }
-
-    document.getElementById("newOilBtn").addEventListener("click", () => {
-      showToast(`새 기름 ${oilCount}통 요청 완료`);
-    });
-
-    document.getElementById("wasteOilBtn").addEventListener("click", () => {
-      showToast("폐기름 수거 요청 완료");
-    });
-
-    document.getElementById("historyBtn").addEventListener("click", () => {
-      showToast("요청 내역 화면으로 이동");
-    });
-
-    document.getElementById("benefitBtn").addEventListener("click", () => {
-      showToast("포인트 사용 화면으로 이동");
-    });
-  </script>
+  <script src="./js/store.js"></script>
 </body>
 </html>
